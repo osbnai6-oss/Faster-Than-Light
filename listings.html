@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Property Listings - [TACHYONS SERVICES]</title>
+    <meta name="description" content="Browse real estate listings and find nearby agencies in [GREATER ACCRA REGION].">
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="nav-brand">
+                <img src="assets/img/logo.svg" alt="[TACHYONS SERVICES] Logo" class="logo">
+                <span class="brand-name">[TACHYONS SERVICES]</span>
+            </div>
+            <nav class="nav">
+                <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="listings.html" class="nav-link active">Listings</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="listings-page">
+            <div class="container">
+                <h1 class="page-title">Property Listings & Real Estate Agencies</h1>
+                
+                <!-- API Configuration Notice -->
+                <div class="api-notice">
+                    <h3>🔧 API Configuration</h3>
+                    <p><strong>Mode A (Client-side):</strong> Set your Google Maps API key in <code>places.js</code> at <code>window.GOOGLE_MAPS_API_KEY</code>. Restrict by HTTP referrer in Google Cloud Console.</p>
+                    <p><strong>Mode B (Serverless - Recommended):</strong> Set <code>USE_PROXY = true</code> in <code>places.js</code> and add <code>GOOGLE_MAPS_API_KEY</code> environment variable in Netlify.</p>
+                </div>
+
+                <!-- Search Controls -->
+                <div class="search-section">
+                    <form class="search-bar" id="searchForm">
+                        <div class="search-group">
+                            <label for="locationInput">Search Location:</label>
+                            <input type="text" id="locationInput" placeholder="Enter address or area..." class="search-input">
+                        </div>
+                        <div class="search-group">
+                            <label for="radiusSelect">Radius:</label>
+                            <select id="radiusSelect" class="search-select">
+                                <option value="1000">1 km</option>
+                                <option value="3000" selected>3 km</option>
+                                <option value="5000">5 km</option>
+                                <option value="10000">10 km</option>
+                            </select>
+                        </div>
+                        <div class="search-actions">
+                            <button type="submit" class="btn btn-primary">Find Agencies</button>
+                            <button type="button" id="useLocationBtn" class="btn btn-secondary">Use My Location</button>
+                            <button type="button" id="resetMapBtn" class="btn btn-outline">Reset Map</button>
+                        </div>
+                    </form>
+
+                    <!-- Data Source Toggle -->
+                    <div class="data-toggle">
+                        <label for="dataSource">Data Source:</label>
+                        <select id="dataSource" class="search-select">
+                            <option value="agencies">Real Estate Agencies (Google Places)</option>
+                            <option value="static">Static Sample Properties</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Status Messages -->
+                <div id="status" class="status-message" role="status" aria-live="polite"></div>
+
+                <!-- Map and Results Layout -->
+                <div class="listings-layout">
+                    <div class="map-container">
+                        <div id="map" class="map"></div>
+                    </div>
+                    <aside class="sidebar">
+                        <h2>Results</h2>
+                        <div id="results" class="results-list"></div>
+                    </aside>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="listings.html">View Listings</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="listings.html">Buy Property</a></li>
+                        <li><a href="listings.html">Rent Property</a></li>
+                        <li><a href="contact.html">Property Valuation</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <p>Email: [osbnai6@gmail.com]</p>
+                    <p>Phone: [0246243055]</p>
+                    <p>Address: [0556811870]</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; [2025] [TACHYONS SERVICES]. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/places.js"></script>
+    <!-- 
+    For Mode A (Client-side): Uncomment and replace with your API key 
+    Remember to restrict this key by HTTP referrer in Google Cloud Console!
+    -->
+    <!-- <script src="https://maps.googleapis.com/maps/api/js?key=REPLACE_WITH_YOUR_KEY&libraries=places&callback=initMap" async defer></script> -->
+    
+    <!-- 
+    For Mode B (Serverless): Use this version - no API key exposed 
+    -->
+    <script src="https://maps.googleapis.com/maps/api/js?libraries=places&callback=initMap" async defer></script>
+</body>
+</html>
